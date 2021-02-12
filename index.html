@@ -3,7 +3,8 @@
 <head>
 	<title>sneak creative portfolio</title>
 </head>
-	<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	<link rel="stylesheet" type="text/css" href="./styles.css">
 
@@ -59,22 +60,23 @@
 		 <p>View our work</p>	
 		</div>
 	</header>
+	
 	<section class="cuerpo">
 		<figure>
 			<img src="./assets/squares.svg" height="12px">
 		</figure>
 
 		<div class="desktop-menu">
-				<nav class="menu">	
-		<ul>
-			<li> <p>All</p> </li>
-			<li> <p>Branding </p> </li>
-			<li> <p>Web </p></li>
-			<li> <p>Photography </p></li>
-			<li> <p>App </p></li>			
+			<nav class="menu">	
+				<ul>
+					<li> <p>All</p> </li>
+					<li> <p>Branding </p> </li>
+					<li> <p>Web </p></li>
+					<li> <p>Photography </p></li>
+					<li> <p>App </p></li>			
 
-		</ul>		
-	</nav>
+				</ul>		
+			</nav>
 		</div>
 	
 
@@ -157,8 +159,53 @@
 	</footer>
 	
  <script>
+
+	//  gallery 
+
+	const containerImages = document.querySelector('.grid-container')
+	const itemsDom = document.querySelectorAll('.item')	
+			
+
+	const masonryLayout = (contenedor, items, cols) => {
+		contenedor.classList.add('masonry-layout',`columns-${cols}`)
+		let columnsElem = []
+		for(let i = 0 ; i<cols ; i++) {
+			let column = document.createElement('div')
+			column.classList.add('masonry-column',`column-${i}`)
+			contenedor.appendChild(column)
+			columnsElem.push(column)
+		}
+
+		for(let m = 0 ; m < Math.ceil(items.length / cols);  m++) {
+			for(let n = 0; n < cols; n++ ) {
+				columnsElem[n].appendChild(items[m * cols + n])
+			}
+		}
+	}	
+	
+
+
+	
+	masonryLayout(containerImages, itemsDom, 3)
+
+	
+
+	//  menu mobile 
 	 const mobile = document.querySelector('.mobile-menu')
 	 const burguerButton = document.querySelector('.hamburguer')
+
+	 const ipad = window.matchMedia('screen and (max-width: 890px)')
+
+	 ipad.addListener(validation)
+
+	 function validation(event) {		 
+		 if(event.matches) {
+			burguerButton.addEventListener("click", hideShow)
+		 } else {
+			burguerButton.removeEventListener("click", hideShow)
+		 }
+		
+	 }
 
 	 function hideShow () {
 
@@ -171,6 +218,8 @@
 	 }
 
 	 burguerButton.addEventListener("click", hideShow)
+
+	 
 
 	 
  </script>
