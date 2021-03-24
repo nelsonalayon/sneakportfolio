@@ -4,7 +4,7 @@ Sneak portofolio is a template where i applied my knoledge about javascript, css
 
 ## Description
 
-Sneak portofolio is a template when i applied my knoledge about javascript, css and html. I used objects like window.innerWidth, window.onload and window.onresize.
+Sneak portofolio is a template that i applied my knoledge about javascript, css and html. I used objects like window.innerWidth, window.onload and window.onresize.
 
 
 ## problems solved
